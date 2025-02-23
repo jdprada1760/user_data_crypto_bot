@@ -1,3 +1,4 @@
 ./data/
 ./backtest_results/
 .history/
+__pycache__
