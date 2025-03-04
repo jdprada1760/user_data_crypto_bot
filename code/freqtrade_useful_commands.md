@@ -72,6 +72,13 @@ freqtrade download-data --exchange binance --pairs BTC/USDC ETH/USDC XRP/USDC SO
 And now we can start the backtesting. Refer to `automate_backtesting.ipynb`
 
 
+# Lookahead bias
+There are many strategies that are have very good performance even in stress timeranges. To rule out lookahead bias, we can run the lookahead analysis test from freqtrade. To do that, run the following command over strategies that are performing too well:
+
+```bash
+freqtrade lookahead-analysis -c user_data/config.json --strategy-list OurStrategy1 OurStrategy2 --timeframe 1h --timerange 20250101-20250131
+```
+
 # Runing the Freqtrade bot
 To run the bot, we need to update the config to allow the UI to be displayed. To do that, modify the api section in the config.json file:
 
