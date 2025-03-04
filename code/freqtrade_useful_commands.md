@@ -70,3 +70,26 @@ freqtrade download-data --exchange binance --pairs BTC/USDC ETH/USDC XRP/USDC SO
 ```
 
 And now we can start the backtesting. Refer to `automate_backtesting.ipynb`
+
+
+# Runing the Freqtrade bot
+To run the bot, we need to update the config to allow the UI to be displayed. To do that, modify the api section in the config.json file:
+
+```json
+        "enabled": true,
+        "listen_ip_address": "0.0.0.0",
+        "listen_port": 4000,
+        "username": "crystobot",
+        "password": "crystobot"
+```
+
+Here the username and password can be anything you want. The listen ip address is set to listen to all incoming connections (important if we want to allow external connections). The listen port is set to 4000.
+
+Now, we can run the bot using the following command:
+
+```bash
+freqtrade trade -c user_data/config.json --strategy OurStrategy
+```
+
+The bot will start and the UI will be available at `http://localhost:4000` with the username and password you set in the config file.
+
